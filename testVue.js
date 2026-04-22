@@ -1,18 +1,22 @@
 /* Analyzed bindings: {
-  "ref": "setup-const",
-  "msg": "setup-ref"
+  "refx": "props",
+  "props": "setup-reactive-const",
+  "msg": "setup-maybe-ref"
 } */
-import { ref } from 'vue'
-
 
 const __sfc__ = {
   __name: 'App',
+  props: ['refx'],
   setup(__props, { expose: __expose }) {
   __expose();
 
-const msg = ref('Hello World!')
+//import { ref } from 'vue'
 
-const __returned__ = { msg, ref }
+const props = __props
+
+const msg = props.refx('Hello World!')
+
+const __returned__ = { props, msg }
 Object.defineProperty(__returned__, '__isScriptSetup', { enumerable: false, value: true })
 return __returned__
 }
